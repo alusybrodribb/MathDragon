@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MathDragon</string>
+    <string name="questionText">What is 1 + 1?</string>
+    <string name="answer2">1</string>
+    <string name="answer1">2</string>
+    <string name="answer3">3</string>
+    <string name="submitButton">Select</string>
+</resources>
