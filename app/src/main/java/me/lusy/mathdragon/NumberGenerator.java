@@ -13,7 +13,9 @@ public class NumberGenerator {
     private int incorrectA;
     private int incorrectB;
     private int answer;
+    private int firstNumber;
     private int secondNumber;
+    private String function;
 
     public NumberGenerator(String questionType) {
         //includes code for future improvements where app includes subtraction, multiplication and division questions
@@ -24,28 +26,36 @@ public class NumberGenerator {
                 firstIncorrect(sum);
                 secondIncorrect(sum);
                 answer = sum;
+                firstNumber = numberA;
                 secondNumber = numberB;
+                function = "+";
                 break;
             case "sub":
                 addSubNumbers();
                 firstIncorrect(numberB);
                 secondIncorrect(numberB);
                 answer = numberB;
-                secondNumber = sum;
+                firstNumber = sum;
+                secondNumber = numberA;
+                function = "-";
                 break;
-            case "mult":
+            case "mul":
                 multDivNumbers();
                 firstIncorrect(product);
                 secondIncorrect(product);
                 answer = product;
+                firstNumber = numberA;
                 secondNumber = numberB;
+                function = "x";
                 break;
             case "div":
                 multDivNumbers();
                 firstIncorrect(numberB);
                 secondIncorrect(numberB);
                 answer = numberB;
+                firstNumber = numberA;
                 secondNumber = product;
+                function = "/";
         }
     }
 
@@ -107,8 +117,8 @@ public class NumberGenerator {
     GETTERS
      *********************************/
 
-    public int getNumberA() {
-        return numberA;
+    public int getFirstNumber() {
+        return firstNumber;
     }
 
     public int getSecondNumber() {return secondNumber; }
@@ -117,6 +127,7 @@ public class NumberGenerator {
         return answer;
     }
 
+    public String getFunction() { return function; }
 
     public int getIncorrectA() {
         return incorrectA;

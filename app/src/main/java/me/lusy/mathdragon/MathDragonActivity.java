@@ -6,28 +6,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MathDragonActivity extends AppCompatActivity {
 
-    private MathsGame mQuestion;
+    private MathGame mQuestion;
     private TextView mQuestionTextView;
     private RadioButton mAnswerA;
     private RadioButton mAnswerB;
     private RadioButton mAnswerC;
     private RadioGroup mAnswerGroup;
     private Button mSubmitButton;
-    private RelativeLayout mRelativeLayout;
+    private TableLayout mTableLayout;
     private RadioButton mCheckedButton;
+    private TextView mQuestionsAnswered;
+    private TextView mQuestionsCorrect;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_dragon);
-
-        mQuestion = new MathsGame();
+        mQuestion = new MathGame();
+        mQuestion.run();
         mQuestionTextView = (TextView) findViewById(R.id.questionTextView);
         mAnswerA = (RadioButton) findViewById(R.id.answer1);
         mAnswerB = (RadioButton) findViewById(R.id.answer2);
@@ -38,6 +41,8 @@ public class MathDragonActivity extends AppCompatActivity {
         mAnswerC.setText(mQuestion.answerAsString(2));
         mAnswerGroup = (RadioGroup) findViewById(R.id.answerGroup);
         mSubmitButton = (Button) findViewById(R.id.submitButton);
+        mQuestionsAnswered = (TextView) findViewById(R.id.questionsAnswered);
+        mQuestionsCorrect = (TextView) findViewById(R.id.questionsCorrect);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -50,7 +55,9 @@ public class MathDragonActivity extends AppCompatActivity {
                 //Toast.makeText(MathDragonActivity.this, mCheckedButton.getText(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(MathDragonActivity.this, mQuestion.correctAnswer(answer), Toast.LENGTH_SHORT).show();
 
-                mQuestion = new MathsGame();
+                mQuestion.run();
+                mQuestionsAnswered.setText(mQuestion.getQuestionsAnswered());
+                mQuestionsCorrect.setText(mQuestion.getCorrectAnswers());
                 mQuestionTextView.setText(mQuestion.getQuestion());
                 mAnswerA.setText(mQuestion.answerAsString(0));
                 mAnswerB.setText(mQuestion.answerAsString(1));
