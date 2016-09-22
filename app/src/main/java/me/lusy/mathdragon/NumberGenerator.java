@@ -52,9 +52,9 @@ public class NumberGenerator {
                 multDivNumbers();
                 firstIncorrect(numberB);
                 secondIncorrect(numberB);
-                answer = numberB;
-                firstNumber = numberA;
-                secondNumber = product;
+                answer = numberA;
+                firstNumber = product;
+                secondNumber = numberB;
                 function = "/";
         }
     }

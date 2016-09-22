@@ -18,14 +18,16 @@
             android:text="Questions Answered"
             android:padding="3dip"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="#290306"/>
         <TextView
             android:id="@+id/questionsAnswered"
             android:text="0"
             android:gravity="right"
             android:padding="3dip"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="#290306"/>
     </TableRow>
 
     <TableRow
@@ -34,14 +36,16 @@
             android:text="Questions Correct"
             android:padding="3dip"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="#290306"/>
         <TextView
             android:id="@+id/questionsCorrect"
             android:text="0"
             android:gravity="right"
             android:padding="3dip"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="#290306"/>
     </TableRow>
 
 
@@ -56,7 +60,8 @@
         android:textAlignment="center"
         android:layout_marginTop="32dp"
         android:textStyle="bold"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:textColor="#290306"/>
 
 
     <RadioGroup
@@ -124,11 +129,12 @@
         android:layout_alignLeft="@+id/questionTextView"
         android:layout_alignStart="@+id/questionTextView"
         android:layout_marginTop="32dp"
-        android:background="#1530D8"
+        android:background="#290306"
         tools:layout_width="wrap_content"
         android:textSize="24sp"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"/>
+        android:paddingTop="5dp"
+        android:textColor="#F2F2F3"/>
 
 
 </TableLayout>
