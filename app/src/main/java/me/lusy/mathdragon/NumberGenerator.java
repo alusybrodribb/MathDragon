@@ -18,8 +18,7 @@ public class NumberGenerator {
     private String function;
 
     public NumberGenerator(String questionType) {
-        //includes code for future improvements where app includes subtraction, multiplication and division questions
-
+        //Generates numbers for addition, multiplication, subtraction and division questions
         switch (questionType) {
             case "add":
                 addSubNumbers();
@@ -99,18 +98,18 @@ public class NumberGenerator {
     }
 
     public void secondIncorrect(int answer) {
-        //generates second incorrect guess within range of either correct number or 1st incorrect guess
+        //generates second incorrect guess within range of either correct number (2/3 chance) or 1st incorrect guess (1/3 chance)
         //This means correct answer is (almost) equally likely to be the lowest, middle or highest number provided
-        int difference = incorrectDifferenceGenerator(answer);
-        int baseNumber = random.nextInt(3);
-        if (baseNumber == 0) {
-            incorrectB = answer + difference;
-        } else {
-            incorrectB = incorrectA + difference;
-            if (incorrectB == answer) {
-                incorrectB += 1;
+        do {
+            int difference = incorrectDifferenceGenerator(answer);
+            int baseNumber = random.nextInt(3);
+            if (baseNumber == 0) {
+                incorrectB = incorrectA + difference;
+            } else {
+                incorrectB = answer + difference;
+
             }
-        }
+        } while (incorrectB == incorrectA || incorrectB == answer);
     }
 
     /***********************************

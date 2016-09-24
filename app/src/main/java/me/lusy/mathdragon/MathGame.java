@@ -11,6 +11,8 @@ public class MathGame {
     private int questionsAnswered = 0;
 
     public void run() {
+        //Randomly selects between addition, subtraction, multiplication and division questions,
+        // then uses number generator to generate base nos for question, correct answer and two incorrect answers
         Random random = new Random();
         int questionType = random.nextInt(4);
         switch(questionType) {
@@ -27,17 +29,18 @@ public class MathGame {
                 question = new NumberGenerator("div");
                 break;
         }
-
         answers = new int[]{question.getAnswer(), question.getIncorrectA(), question.getIncorrectB()};
         Arrays.sort(answers);
     }
 
     public String getQuestion() {
+        //Generates questions based on numbers generated
         return "What is " + question.getFirstNumber() + " " + question.getFunction() + " " + question.getSecondNumber() + "?";
     }
 
+
     public String correctAnswer(String selection) {
-        //Marks question as marked
+        //Marks question as answered
         questionsAnswered++;
         if (Integer.parseInt(selection) == question.getAnswer()) {
             //Marks questions as correct and advises user that their answer was right
@@ -49,18 +52,19 @@ public class MathGame {
         }
     }
 
-    public String answerAsString(int answerNo) {
-        return "" + answers[answerNo];
-    }
-
-
 /***********************************
  GETTERS
  *******************************/
 
+
+    public String answerAsString(int answerNo) {
+    return "" + answers[answerNo];
+}
+
     public String getQuestionsAnswered() { return "" + questionsAnswered; }
 
     public String getCorrectAnswers() { return "" + correctAnswers; }
+
 
 }
 

@@ -52,9 +52,7 @@ public class MathDragonActivity extends AppCompatActivity {
 
                 mCheckedButton = (RadioButton) findViewById(selectedId);
                 String answer = mCheckedButton.getText().toString();
-                //Toast.makeText(MathDragonActivity.this, mCheckedButton.getText(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(MathDragonActivity.this, mQuestion.correctAnswer(answer), Toast.LENGTH_SHORT).show();
-
                 mQuestion.run();
                 mQuestionsAnswered.setText(mQuestion.getQuestionsAnswered());
                 mQuestionsCorrect.setText(mQuestion.getCorrectAnswers());
